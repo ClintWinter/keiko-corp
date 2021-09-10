@@ -5,7 +5,7 @@ const PurgecssPlugin = require('purgecss-webpack-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const PATHS = {
-  dist: path.join(__dirname, 'dist'),
+  docs: path.join(__dirname, 'docs'),
   src: path.join(__dirname, 'src'),
 }
 
@@ -13,7 +13,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'docs'),
   },
   optimization: {
     minimize: true,
@@ -47,7 +47,7 @@ module.exports = {
     new PurgecssPlugin({
       paths: glob.sync([
         `${PATHS.src}/**/*.css`,
-        `${PATHS.dist}/index.html`,
+        `${PATHS.docs}/index.html`,
       ], { nodir: true }),
     }),
   ],
